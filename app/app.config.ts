@@ -1,5 +1,3 @@
 export default defineAppConfig({
-    runtimeConfig: {
-        APIURL: "http://localhost:8080/api"
-    }
+    APIURL: "http://localhost:8080/api"
 })
