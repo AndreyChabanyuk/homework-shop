@@ -4,7 +4,7 @@
 			{{ error.statusCode }}
 		</div>
 		<div>{{ error.statusMessage }}</div>
-		<button @click="goHome">Вернуться на главную страницу</button>
+		<Button color="ghost" @click="goHome">Вернуться на главную страницу</Button>
 	</div>
 </template>
 <script setup lang="ts">

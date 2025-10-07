@@ -3,12 +3,19 @@
       <div class="main__container">
        Главная 
        <nuxt-link to="/posts/create">Создать пост</nuxt-link>
+       <Button @click=logout>Выйти</Button>
        </div>
        <Posts />
     </div>
     
 </template>
-<script>
+<script setup lang="ts">
+
+const logout = () => {
+    localStorage.removeItem('access')
+    navigateTo('/auth/login')
+}
+
 
 </script>
 <style lang="sass">
