@@ -5,6 +5,12 @@ export default defineNuxtConfig({
 	imports: {
 		autoImport: true,
 	},
+	app: {
+		pageTransition: {
+			name: 'page',
+			mode: 'out-in'
+		}
+	},
 	runtimeConfig: {
 		token: '',
 		public: {
@@ -20,5 +26,11 @@ export default defineNuxtConfig({
 			path: '~/widgets',
 		},
 	],
-	modules: ['@nuxt/eslint', '@nuxt/fonts', '@nuxt/image', '@nuxt/scripts'],
+	modules: [
+		'@nuxt/eslint',
+		'@nuxt/fonts',
+		'@nuxt/image',
+		'@nuxt/scripts',
+		'@pinia/nuxt',
+	],
 })
