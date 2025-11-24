@@ -10,6 +10,7 @@
 					>
 					<p>PurpleSchool</p>
 					<p>4 дня назад</p>
+					
 				</header>
 				<main class="item__main">
 					<h1 class="h1-title">{{ post.title }}</h1>
