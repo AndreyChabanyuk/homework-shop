@@ -1,7 +1,7 @@
 <template>
 	<section class="post-container">
 		<div class="post-container__item">
-			<nuxt-link class="post-container__ref" :to="`/posts/${post.id}/edit`">
+			<nuxt-link class="post-container__ref" :to="`/posts/${post.id}`">
 			<header class="item__top">
 				<img
 					class="logo-img"
