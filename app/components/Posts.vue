@@ -1,7 +1,7 @@
 <template>
-    <div class="posts">
+    <div v-if="posts?.length" class="posts">
         <h1>Посты</h1>
-        <CardPost v-for="post in posts" :key="post.id" :post="post"/>
+             <CardPost v-for="post in posts"  :key="post.id" :post="post"/>
     </div>
 </template>
 <script lang="ts" setup>

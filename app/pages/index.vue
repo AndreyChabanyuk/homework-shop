@@ -10,7 +10,9 @@
 <script setup lang="ts">
 
 const storeVoices = useVoiceStore()
-storeVoices.fetch()
+await useAsyncData('voices', async () => {
+  await storeVoices.fetch()
+})
 
 </script>
 <style lang="sass">
