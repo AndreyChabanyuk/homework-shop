@@ -3,13 +3,14 @@
       <div class="main__container">
        <nuxt-link to="/posts/create">Создать пост</nuxt-link>
        </div>
-       <Posts />
+       <Posts :posts="storeVoices?.posts" />
     </div>
     
 </template>
 <script setup lang="ts">
 
-
+const storeVoices = useVoiceStore()
+storeVoices.fetch()
 
 </script>
 <style lang="sass">

@@ -1,6 +1,7 @@
 <template>
 	<section class="post-container">
 		<div class="post-container__item">
+			<nuxt-link class="post-container__ref" :to="`/posts/${post.id}/edit`">
 			<header class="item__top">
 				<img
 					class="logo-img"
@@ -12,22 +13,21 @@
 				<p>4 дня назад</p>
 			</header>
 			<main class="item__main">
-				<h1 class="h1-title">Добавить функцию голосования</h1>
+				<h1 class="h1-title">{{post.title}}</h1>
 				<p>
-					Попробовать добавить в приложение функцию голосования, которая
-					позволит определить, какая фича более полезна, а какая нет. После
-					добавления поста появляется...
+					{{post.content}}
 				</p>
 			</main>
+			</nuxt-link>
 			<footer class="item__footer">
 				<div class="footer__likes">
-					<span>{{voice.like}}</span>
-                    <button class="like-button" :disabled="voice.liked" @click="voice.toggle('like')">
+					<span>{{post.likes}}</span>
+                    <button class="like-button" :disabled="voice.liked" @click="voice.toggle(post.id, 'like')">
                         <img width="24" height="20" src="https://img.icons8.com/material-outlined/24/facebook-like--v1.png" alt="facebook-like--v1">
                     </button>
 					
-					<span>{{voice.dislike}}</span>
-					<button :disabled="voice.disliked" @click="voice.toggle('dislike')" >
+					<span>{{post.dislikes}}</span>
+					<button :disabled="voice.disliked" @click="voice.toggle(post.id, 'dislike')" >
                         <img width="24" height="20" src="https://img.icons8.com/material-outlined/24/thumbs-down.png" alt="thumbs-down">
                     </button>
 				</div>
@@ -38,21 +38,28 @@
 			</footer>
 		
 		</div>
-		<nuxt-link :to="`/posts/${route.params.id}/edit`"
-			>Редактирование поста</nuxt-link
-		>
 	</section>
 </template>
 <script lang="ts" setup>
 
 import { useVoiceStore } from '#imports';
+import type { Post } from '~/interfaces/posts.interface'
+
+defineProps<{post: Post}>()
 
 const voice = useVoiceStore()
-const route = useRoute()
+
+
 
 </script>
-<style lang="sass">
+<style lang="sass" scoped>
 
+.post-container__item a
+   text-decoration: none
+   color: black 
+
+.post-container__item:hover
+   box-shadow: 0px 10px 25px 0px rgb(120,128,128)
 button
    cursor: pointer
 
