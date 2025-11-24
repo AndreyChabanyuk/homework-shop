@@ -1,15 +1,20 @@
 <template>
     <div class="posts">
-        Посты
-        <nuxt-link to="/posts/1">К посту</nuxt-link>
+        <h1>Посты</h1>
+        <CardPost v-for="post in posts" :key="post.id" :post="post"/>
     </div>
 </template>
 <script lang="ts" setup>
-const route = useRoute()
+import type { Post } from '~/interfaces/posts.interface';
+
+defineProps<{
+    posts: Post[]
+}>()
 </script>
 <style lang="sass">
 .posts
     display: flex
     justify-content: center
+    flex-direction: column
     gap: 40px
 </style>

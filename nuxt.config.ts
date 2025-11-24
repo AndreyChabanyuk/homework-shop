@@ -14,7 +14,7 @@ export default defineNuxtConfig({
 	runtimeConfig: {
 		token: '',
 		public: {
-			apiurl: '',
+			postsurl: '',
 		},
 	},
 	components: [
